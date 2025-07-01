@@ -38,7 +38,7 @@ export const databaseConfig = {
 
 export const appConfig = {
   port: Number.parseInt(process.env.PORT || "3000"),
-  jwtSecret: process.env.JWT_SECRET ,
+  jwtSecret: process.env.JWT_SECRET || "123",
   nodeEnv: process.env.NODE_ENV ,
   corsOrigin: process.env.CORS_ORIGIN || "http://localhost:3000",
 }
