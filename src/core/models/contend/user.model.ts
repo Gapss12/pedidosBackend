@@ -8,13 +8,12 @@
 import { DataTypes, ModelAttributes } from "sequelize"
 import { BaseEntity } from "@/core/entities/base.entity"
 import { sequelize } from "@/config/sequelize"
-import { UserRole } from "@/types/global"
 
 export class User extends BaseEntity {
   public name!: string
   public email!: string
   public password!: string
-  public rol!: UserRole
+  public type!: string
   public creado_en!: Date
 
   static associate() {
@@ -46,11 +45,11 @@ const attributes: ModelAttributes = {
       len: [8, 255],
     },
   },
-  rol: {
-    type: DataTypes.ENUM(...Object.values(UserRole)),
-    allowNull: false,
-    defaultValue: UserRole.USER,
-  },
+  type: {
+      type: DataTypes.ENUM("client", "admin"),
+      allowNull: false,
+      defaultValue: "client",
+    },
   creado_en: {
     type: DataTypes.DATE,
     allowNull: false,

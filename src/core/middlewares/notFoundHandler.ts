@@ -1,5 +1,5 @@
 import type { Request, Response } from "express"
-import type { ApiResponse } from "../contend/types/global"
+import type { ApiResponse } from "../types/global"
 
 export const notFoundHandler = (req: Request, res: Response): void => {
   const response: ApiResponse = {
