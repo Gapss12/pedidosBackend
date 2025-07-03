@@ -10,11 +10,10 @@ import { BaseEntity } from "@/core/entities/base.entity"
 import { sequelize } from "@/config/sequelize"
 
 export class Product extends BaseEntity {
-  public nombre!: string
-  public descripcion!: string
-  public precio!: number
+  public name!: string
+  public description!: string
+  public price!: number
   public stock!: number
-  public creado_en!: Date
 
   static associate() {
   }
@@ -22,7 +21,7 @@ export class Product extends BaseEntity {
 
 const attributes: ModelAttributes = {
   ...BaseEntity.getBaseAttributes(),
-  nombre: {
+  name: {
     type: DataTypes.STRING,
     allowNull: false,
     validate: {
@@ -30,11 +29,11 @@ const attributes: ModelAttributes = {
       len: [2, 200],
     },
   },
-  descripcion: {
+  description: {
     type: DataTypes.TEXT,
     allowNull: true,
   },
-  precio: {
+  price: {
     type: DataTypes.DECIMAL(10, 2),
     allowNull: false,
     validate: {
@@ -49,16 +48,11 @@ const attributes: ModelAttributes = {
       min: 0,
     },
   },
-  creado_en: {
-    type: DataTypes.DATE,
-    allowNull: false,
-    defaultValue: DataTypes.NOW,
-  },
 }
 
 Product.init(attributes, {
   sequelize,
   modelName: "Product",
-  tableName: "productos",
-  timestamps: false,
+  tableName: "products",
+  timestamps: true,
 })

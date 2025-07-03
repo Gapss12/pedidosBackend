@@ -9,11 +9,11 @@ import { DataTypes, type ModelAttributes } from "sequelize"
 import { BaseEntity } from "@/core/entities/base.entity"
 import { sequelize } from "@/config/sequelize"
 import { OrderStatus } from "@/types/global"
+import { User } from "./user.model"
 
 export class Order extends BaseEntity {
-  public usuario_id!: string
-  public fecha!: Date
-  public estado!: OrderStatus
+  public userId!: string
+  public status!: OrderStatus
   public total!: number
 
   static associate() {
@@ -22,20 +22,15 @@ export class Order extends BaseEntity {
 
 const attributes: ModelAttributes = {
   ...BaseEntity.getBaseAttributes(),
-  usuario_id: {
+  userId: {
     type: DataTypes.UUID,
     allowNull: false,
     references: {
-      model: "usuarios",
+      model: User,
       key: "id",
     },
   },
-  fecha: {
-    type: DataTypes.DATE,
-    allowNull: false,
-    defaultValue: DataTypes.NOW,
-  },
-  estado: {
+  status: {
     type: DataTypes.ENUM(...Object.values(OrderStatus)),
     allowNull: false,
     defaultValue: OrderStatus.PENDING,
@@ -51,7 +46,9 @@ const attributes: ModelAttributes = {
 
 Order.init(attributes, {
   sequelize,
-  modelName: "Order",
-  tableName: "pedidos",
-  timestamps: false,
+  tableName: "orders",
+  timestamps: true,
 })
+
+Order.belongsTo(User, { foreignKey: "userId", as: "user" })
+User.hasMany(Order, { foreignKey: "userId", as: "orders" })

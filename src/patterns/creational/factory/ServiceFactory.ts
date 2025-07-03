@@ -11,7 +11,7 @@
 
 // Interfaz base para todos los servicios
 import { IRepository } from "../../../core/interfaces/IRepository"
-import { IService } from "@/core/interfaces/service.interface"
+import { IService } from "@/core/interfaces/IService"
 
 // Factory abstracto
 export abstract class ServiceFactory<T, CreateDTO, UpdateDTO> {

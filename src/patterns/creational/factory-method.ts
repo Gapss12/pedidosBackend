@@ -5,8 +5,8 @@
  * @signature FactoryMethod
  */
 
-import type { IRepository } from "@/core/interfaces/repostiry.interface"
-import type { IService } from "@/core/interfaces/service.interface"
+import type { IRepository } from "@/core/interfaces/IRepository"
+import type { IService } from "@/core/interfaces/IService"
 
 // Abstract Factory for creating complete module ecosystems
 export abstract class ModuleFactory<T, CreateDTO, UpdateDTO> {

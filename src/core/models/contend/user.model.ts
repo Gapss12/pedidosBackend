@@ -11,9 +11,9 @@ import { sequelize } from "@/config/sequelize"
 import { UserRole } from "@/types/global"
 
 export class User extends BaseEntity {
-  public nombre!: string
-  public correo!: string
-  public contraseña!: string
+  public name!: string
+  public email!: string
+  public password!: string
   public rol!: UserRole
   public creado_en!: Date
 
@@ -61,6 +61,6 @@ const attributes: ModelAttributes = {
 User.init(attributes, {
   sequelize,
   modelName: "User",
-  tableName: "usuarios",
-  timestamps: false,
+  tableName: "users",
+  timestamps: true,
 })

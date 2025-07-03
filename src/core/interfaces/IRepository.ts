@@ -1,13 +1,7 @@
-/**
- * DTO for creating a new user
- * @author Gabriel Guzman
- * @date 2025-07-01
- * @signature IRepository
- */
-export interface IRepository<T, CreateDTO, UpdateDTO> {
-  getAll(): Promise<T[]>
-  getById(id: string): Promise<T | null>
-  create(data: CreateDTO): Promise<T>
-  update(id: string, data: UpdateDTO): Promise<T | null>
-  delete(id: string): Promise<boolean>
+export interface IRepository<T> {
+  findAll(): Promise<T[]>
+  findById(id: number): Promise<T | null>
+  create(data: Partial<T>): Promise<T>
+  update(id: number, data: Partial<T>): Promise<T | null>
+  delete(id: number): Promise<boolean>
 }
