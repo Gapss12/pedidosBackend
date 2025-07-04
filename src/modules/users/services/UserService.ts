@@ -5,7 +5,7 @@
  * @signature UserService
  */
 import { UserRepository } from "../repositories/UserRepository"
-import type { CreateUserDto, UpdateUserDto } from "../dtos/CreateUserDto"
+import type { CreateUserDto, UpdateUserDto } from "../dtos/UserDto"
 import type { User } from "@/core/entities/User"
 import { UserFactoryProvider } from "../factories/UserFactory"
 import { UserType } from "@/core/types/global"

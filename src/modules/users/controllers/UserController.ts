@@ -1,3 +1,9 @@
+/**
+ * UserController - Controlador para manejar las operaciones de usuario
+ * @author Gabriel Guzman
+ * @date 2025-07-04
+ * @signature UserController
+ */
 import type { Request, Response, NextFunction } from "express"
 import { UserService } from "../services/UserService"
 import type { ApiResponse } from "@/core/types/global"

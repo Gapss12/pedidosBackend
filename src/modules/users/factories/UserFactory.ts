@@ -1,3 +1,9 @@
+/**
+ * UserFactory - Factory para crear diferentes tipos de usuarios
+ * @author Gabriel Guzman
+ * @date 2025-07-04
+ * @signature UserFactory
+ */
 // PATRÓN FACTORY METHOD - Creación de diferentes tipos de usuario
 import { User } from "../../../core/entities/User"
 import type { IUserFactory } from "../../../core/interfaces/IUserFactory"
@@ -9,13 +15,13 @@ export abstract class UserFactory implements IUserFactory {
 
 export class ClientUserFactory extends UserFactory {
   createUser(name: string, email: string): User {
-    return new User('0', name, email, UserType.CLIENT)
+    return new User(0, name, email, UserType.CLIENT)
   }
 }
 
 export class AdminUserFactory extends UserFactory {
   createUser(name: string, email: string): User {
-    return new User('0', name, email, UserType.ADMIN)
+    return new User(0, name, email, UserType.ADMIN)
   }
 }
 
