@@ -5,52 +5,31 @@
  * @signature Server
  */
 
-import { createApp } from "./src/app"
-import { connectDatabase } from "@/config/sequelize"
-import { appConfig } from "@/config/database"
+import app from "./src/app"
+import { sequelize } from "./src/config/database"
 
-const startServer = async (): Promise<void> => {
+const PORT = process.env.PORT || 3000
+
+async function startServer() {
   try {
-    // Connect to database
-    await connectDatabase()
+    // Conectar a la base de datos
+    await sequelize.authenticate()
+    console.log("Conexión a la base de datos establecida correctamente")
 
-    // Create Express app
-    const app = createApp()
+    // Sincronizar modelos (solo en desarrollo)
+    if (process.env.NODE_ENV === "development") {
+      await sequelize.sync({ force: false })
+      console.log(" Modelos sincronizados")
+    }
 
-    // Start server
-    app.listen(appConfig.port, () => {
-      console.log(`🚀 Server running on port ${appConfig.port}`)
-      console.log(`📊 Environment: ${appConfig.nodeEnv}`)
-      console.log(`🔗 Health check: http://localhost:${appConfig.port}/health`)
-      console.log(`📚 API docs: http://localhost:${appConfig.port}/api`)
+    // Iniciar servidor
+    app.listen(PORT, () => {
+      console.log(`🚀 Servidor corriendo en puerto ${PORT}`)
     })
   } catch (error) {
-    console.error("❌ Failed to start server:", error)
+    console.error(" Error al iniciar el servidor:", error)
     process.exit(1)
   }
 }
-
-// Handle unhandled promise rejections
-process.on("unhandledRejection", (err: Error) => {
-  console.error("Unhandled Promise Rejection:", err)
-  process.exit(1)
-})
-
-// Handle uncaught exceptions
-process.on("uncaughtException", (err: Error) => {
-  console.error("Uncaught Exception:", err)
-  process.exit(1)
-})
-
-// Graceful shutdown
-process.on("SIGTERM", () => {
-  console.log("SIGTERM received, shutting down gracefully")
-  process.exit(0)
-})
-
-process.on("SIGINT", () => {
-  console.log("SIGINT received, shutting down gracefully")
-  process.exit(0)
-})
 
 startServer()

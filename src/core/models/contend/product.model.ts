@@ -9,7 +9,7 @@ import { DataTypes, type ModelAttributes } from "sequelize"
 import { BaseEntity } from "@/core/entities/base.entity"
 import { sequelize } from "@/config/sequelize"
 
-export class Product extends BaseEntity {
+export class ProductModel extends BaseEntity {
   public name!: string
   public description!: string
   public price!: number
@@ -50,7 +50,7 @@ const attributes: ModelAttributes = {
   },
 }
 
-Product.init(attributes, {
+ProductModel.init(attributes, {
   sequelize,
   modelName: "Product",
   tableName: "products",

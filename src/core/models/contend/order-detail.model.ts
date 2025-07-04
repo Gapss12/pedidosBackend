@@ -8,11 +8,11 @@
 import { DataTypes, type ModelAttributes } from "sequelize"
 import { BaseEntity } from "@/core/entities/base.entity"
 import { sequelize } from "@/config/sequelize"
-import { User } from "./user.model"
-import { Product } from "./product.model"
-import { Order } from "./order.model"
+import { UserModel } from "./user.model"
+import { ProductModel } from "./product.model"
+import { OrderModel } from "./order.model"
 
-export class OrderDetail extends BaseEntity {
+export class OrderDetailModel extends BaseEntity {
   public orderId!: string
   public productId!: string
   public quantity!: number
@@ -29,7 +29,7 @@ const attributes: ModelAttributes = {
     type: DataTypes.UUID,
     allowNull: false,
     references: {
-      model: "pedidos",
+      model: OrderModel,
       key: "id",
     },
   },
@@ -37,7 +37,7 @@ const attributes: ModelAttributes = {
       type: DataTypes.UUID,
       allowNull: false,
       references: {
-        model: User,
+        model: UserModel,
         key: "id",
       },
     },
@@ -45,7 +45,7 @@ const attributes: ModelAttributes = {
     type: DataTypes.UUID,
     allowNull: false,
     references: {
-      model: Product,
+      model: ProductModel,
       key: "id",
     },
   },
@@ -74,15 +74,15 @@ const attributes: ModelAttributes = {
     },
 }
 
-OrderDetail.init(attributes, {
+OrderDetailModel.init(attributes, {
   sequelize,
   modelName: "OrderDetail",
   tableName: "orderDetail",
   timestamps: false,
 })
 
-OrderDetail.belongsTo(Order, { foreignKey: "orderId", as: "order" })
-OrderDetail.belongsTo(Product, { foreignKey: "productId", as: "product" })
-Order.hasMany(OrderDetail, { foreignKey: "orderId", as: "details" })
-Product.hasMany(OrderDetail, { foreignKey: "productId", as: "orderDetails" })
+OrderDetailModel.belongsTo(OrderModel, { foreignKey: "orderId", as: "order" })
+OrderDetailModel.belongsTo(ProductModel, { foreignKey: "productId", as: "product" })
+OrderModel.hasMany(OrderDetailModel, { foreignKey: "orderId", as: "details" })
+ProductModel.hasMany(OrderDetailModel, { foreignKey: "productId", as: "orderDetails" })
 

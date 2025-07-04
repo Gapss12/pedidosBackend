@@ -1,6 +1,6 @@
 import type { Request, Response, NextFunction } from "express"
 import { UserService } from "../services/UserService"
-import type { ApiResponse } from "../../../core/contend/types/global"
+import type { ApiResponse } from "@/core/types/global"
 
 export class UserController {
   private userService: UserService

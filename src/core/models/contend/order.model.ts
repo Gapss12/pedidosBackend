@@ -9,9 +9,9 @@ import { DataTypes, type ModelAttributes } from "sequelize"
 import { BaseEntity } from "@/core/entities/base.entity"
 import { sequelize } from "@/config/sequelize"
 import { OrderStatus } from "@/types/global"
-import { User } from "./user.model"
+import { UserModel } from "./user.model"
 
-export class Order extends BaseEntity {
+export class OrderModel extends BaseEntity {
   public userId!: string
   public status!: OrderStatus
   public total!: number
@@ -26,7 +26,7 @@ const attributes: ModelAttributes = {
     type: DataTypes.UUID,
     allowNull: false,
     references: {
-      model: User,
+      model: UserModel,
       key: "id",
     },
   },
@@ -44,11 +44,11 @@ const attributes: ModelAttributes = {
   },
 }
 
-Order.init(attributes, {
+OrderModel.init(attributes, {
   sequelize,
   tableName: "orders",
   timestamps: true,
 })
 
-Order.belongsTo(User, { foreignKey: "userId", as: "user" })
-User.hasMany(Order, { foreignKey: "userId", as: "orders" })
+OrderModel.belongsTo(UserModel, { foreignKey: "userId", as: "user" })
+UserModel.hasMany(OrderModel, { foreignKey: "userId", as: "orders" })

@@ -4,71 +4,40 @@
  * @date 2025-07-01
  * @signature App
  */
-
 import express from "express"
 import cors from "cors"
 import helmet from "helmet"
-import rateLimit from "express-rate-limit"
-import { appConfig } from "./config/database"
-import { routes } from "./modules/index"
+import dotenv from "dotenv"
 
-export const createApp = (): express.Application => {
-  const app = express()
+// Importar rutas
+import userRoutes from "./modules/users/user.routes"
 
-  // Security middleware
-  app.use(helmet())
-  app.use(
-    cors({
-      origin: appConfig.corsOrigin,
-      credentials: true,
-    }),
-  )
+// Importar middlewares
+import { errorHandler } from "./core/middlewares/errorHandler"
+import { notFoundHandler } from "./core/middlewares/notFoundHandler"
 
-  // Rate limiting
-  const limiter = rateLimit({
-    windowMs: 15 * 60 * 1000, // 15 minutes
-    max: 100, // limit each IP to 100 requests per windowMs
-    message: {
-      success: false,
-      error: "Too many requests from this IP, please try again later",
-    },
-  })
-  app.use(limiter)
+dotenv.config()
 
-  // Body parsing middleware
-  app.use(express.json({ limit: "10mb" }))
-  app.use(express.urlencoded({ extended: true }))
+const app = express()
 
-  // Health check endpoint
-  app.get("/health", (req, res) => {
-    res.status(200).json({
-      success: true,
-      message: "Server is running",
-      timestamp: new Date().toISOString(),
-    })
-  })
+// Middlewares de seguridad
+app.use(helmet())
+app.use(cors())
 
-  // API routes
-  app.use("/api", routes)
+// Middlewares de parsing
+app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
 
-  // 404 handler
-  app.use("*", (req, res) => {
-    res.status(404).json({
-      success: false,
-      error: "Route not found",
-    })
-  })
+// Rutas principales
+app.use("/api/users", userRoutes)
 
-  // Global error handler
-  app.use((err: any, req: express.Request, res: express.Response, next: express.NextFunction) => {
-    console.error("Global error handler:", err)
+// Ruta de salud
+app.get("/health", (req, res) => {
+  res.json({ status: "OK", timestamp: new Date().toISOString() })
+})
 
-    res.status(err.status || 500).json({
-      success: false,
-      error: err.message || "Internal server error",
-      ...(appConfig.nodeEnv === "development" && { stack: err.stack }),
-    })
-  })
+// Middlewares de manejo de errores
+app.use(notFoundHandler)
+app.use(errorHandler)
 
-  return app
-}
+export default app

@@ -9,7 +9,7 @@ import { DataTypes, ModelAttributes } from "sequelize"
 import { BaseEntity } from "@/core/entities/base.entity"
 import { sequelize } from "@/config/sequelize"
 
-export class User extends BaseEntity {
+export class UserModel extends BaseEntity {
   public name!: string
   public email!: string
   public password!: string
@@ -57,7 +57,7 @@ const attributes: ModelAttributes = {
   },
 }
 
-User.init(attributes, {
+UserModel.init(attributes, {
   sequelize,
   modelName: "User",
   tableName: "users",
