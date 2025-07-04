@@ -1,7 +1,7 @@
 export class Order {
   constructor(
-    public id: string,
-    public userId: string,
+    public id: number,
+    public userId: number,
     public status: string,
     public total: number,
     public createdAt: Date = new Date(),

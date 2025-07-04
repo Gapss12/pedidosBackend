@@ -1,3 +1,10 @@
+/**
+ * NotificationManager - Sistema de notificaciones
+ * @author Gabriel Guzman
+ * @date 2025-07-04
+ * @signature NotificationManager
+ */
+
 // PATRÓN OBSERVER - Sistema de notificaciones
 import type { IObserver, ISubject } from "@/core/interfaces/IObserver"
 
@@ -23,7 +30,7 @@ export class NotificationManager implements ISubject {
   }
 
   notify(event: string, data: any): void {
-    console.log(`📧 Notificando evento: ${event}`)
+    console.log( `Notificando evento: ${event}`)
     this.observers.forEach((observer) => observer.update(event, data))
   }
 }
@@ -33,13 +40,13 @@ export class EmailNotificationObserver implements IObserver {
   update(event: string, data: any): void {
     switch (event) {
       case "user_created":
-        console.log(`📧 Enviando email de bienvenida a: ${data.email}`)
+        console.log(`Enviando email de bienvenida a: ${data.email}`)
         break
       case "order_created":
-        console.log(`📧 Enviando confirmación de pedido a: ${data.userEmail}`)
+        console.log(`Enviando confirmación de pedido a: ${data.userEmail}`)
         break
       default:
-        console.log(`📧 Evento no manejado: ${event}`)
+        console.log(`Evento no manejado: ${event}`)
     }
   }
 }
@@ -48,10 +55,10 @@ export class SMSNotificationObserver implements IObserver {
   update(event: string, data: any): void {
     switch (event) {
       case "order_shipped":
-        console.log(`📱 Enviando SMS de envío para pedido: ${data.orderId}`)
+        console.log(`Enviando SMS de envío para pedido: ${data.orderId}`)
         break
       default:
-        console.log(`📱 Evento SMS no manejado: ${event}`)
+        console.log(`Evento SMS no manejado: ${event}`)
     }
   }
 }

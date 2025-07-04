@@ -1,8 +1,8 @@
 export class OrderDetail {
   constructor(
-    public id: string,
-    public orderId:string,
-    public productId:string,
+    public id: number,
+    public orderId:number,
+    public productId:number,
     public quantity: number,
     public unitPrice: number,
     public subtotal: number,

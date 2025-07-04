@@ -13,8 +13,8 @@ import { ProductModel } from "./product.model"
 import { OrderModel } from "./order.model"
 
 export class OrderDetailModel extends BaseEntity {
-  public orderId!: string
-  public productId!: string
+  public orderId!: number
+  public productId!: number
   public quantity!: number
  public unitPrice!: number
   public subtotal!: number
@@ -26,7 +26,7 @@ export class OrderDetailModel extends BaseEntity {
 const attributes: ModelAttributes = {
   ...BaseEntity.getBaseAttributes(),
   orderId: {
-    type: DataTypes.UUID,
+    type: DataTypes.INTEGER,
     allowNull: false,
     references: {
       model: OrderModel,
@@ -34,7 +34,7 @@ const attributes: ModelAttributes = {
     },
   },
    userId: {
-      type: DataTypes.UUID,
+      type: DataTypes.INTEGER,
       allowNull: false,
       references: {
         model: UserModel,
@@ -42,7 +42,7 @@ const attributes: ModelAttributes = {
       },
     },
   productId: {
-    type: DataTypes.UUID,
+    type: DataTypes.INTEGER,
     allowNull: false,
     references: {
       model: ProductModel,

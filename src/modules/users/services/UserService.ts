@@ -1,3 +1,9 @@
+/**
+ * User service for managing user-related operations.
+ * @author Gabriel Guzman
+ * @date 2025-07-04
+ * @signature UserService
+ */
 import { UserRepository } from "../repositories/UserRepository"
 import type { CreateUserDto, UpdateUserDto } from "../dtos/CreateUserDto"
 import type { User } from "@/core/entities/User"

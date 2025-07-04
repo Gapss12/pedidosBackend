@@ -1,3 +1,9 @@
+/**
+ * User routes for managing user-related operations.
+ * @author Gabriel Guzman
+ * @date 2025-07-04
+ * @signature UserRoutes
+ */
 import { Router } from "express"
 import { UserController } from "./controllers/UserController"
 

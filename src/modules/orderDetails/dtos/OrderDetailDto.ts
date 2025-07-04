@@ -5,8 +5,8 @@
  * @signature OrderDetailDto
  */
 export interface CreateOrderDetailDto {
-  orderId: string
-  productId: string
+  orderId: number
+  productId: number
   quantity: number
   unitPrice: number
   subtotal: number

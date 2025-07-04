@@ -8,7 +8,7 @@
 import { Model, DataTypes, ModelAttributes, CreationOptional, InferAttributes, InferCreationAttributes } from "sequelize"
 
 export interface BaseEntityAttributes {
-  id: string
+  id: Number
   createdAt: Date
   updatedAt: Date
 }
@@ -16,15 +16,14 @@ export interface BaseEntityAttributes {
 export abstract class BaseEntity<
   M extends Model = any
 > extends Model<InferAttributes<M>, InferCreationAttributes<M>> {
-  declare id: CreationOptional<string>
+  declare id: CreationOptional<number>
   declare readonly createdAt: CreationOptional<Date>
   declare readonly updatedAt: CreationOptional<Date>
 
   public static getBaseAttributes(): ModelAttributes {
     return {
       id: {
-        type: DataTypes.UUID,
-        defaultValue: DataTypes.UUIDV4,
+        type: DataTypes.INTEGER,
         primaryKey: true,
         allowNull: false,
       },

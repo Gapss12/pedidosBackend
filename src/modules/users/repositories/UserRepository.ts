@@ -1,3 +1,9 @@
+/**
+ * UserRepository - Repositorio para manejar operaciones de usuario
+ * @author Gabriel Guzman
+ * @date 2025-07-04
+ * @signature UserRepository
+ */
 import { UserModel } from "@/core/models/index"
 import type { IRepository } from "../../../core/interfaces/IRepository"
 import { User } from "../../../core/entities/User"

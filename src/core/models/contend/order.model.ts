@@ -12,7 +12,7 @@ import { OrderStatus } from "@/types/global"
 import { UserModel } from "./user.model"
 
 export class OrderModel extends BaseEntity {
-  public userId!: string
+  public userId!: number
   public status!: OrderStatus
   public total!: number
 
@@ -23,7 +23,7 @@ export class OrderModel extends BaseEntity {
 const attributes: ModelAttributes = {
   ...BaseEntity.getBaseAttributes(),
   userId: {
-    type: DataTypes.UUID,
+    type: DataTypes.INTEGER,
     allowNull: false,
     references: {
       model: UserModel,
