@@ -7,7 +7,7 @@
 
 import { DataTypes, type ModelAttributes } from "sequelize"
 import { BaseEntity } from "@/core/entities/base.entity"
-import { sequelize } from "@/config/sequelize"
+import { sequelize } from "@/config/database"
 import { OrderStatus } from "@/types/global"
 import { UserModel } from "./user.model"
 

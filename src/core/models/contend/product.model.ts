@@ -7,7 +7,7 @@
 
 import { DataTypes, type ModelAttributes } from "sequelize"
 import { BaseEntity } from "@/core/entities/base.entity"
-import { sequelize } from "@/config/sequelize"
+import { sequelize } from "@/config/database"
 
 export class ProductModel extends BaseEntity {
   public name!: string
