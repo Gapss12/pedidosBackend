@@ -1,4 +1,10 @@
-import { OrderModel } from "../../../core/models/OrderModel"
+/**
+ * OrderRepository - Repositorio para manejar operaciones de pedidos
+ * @author Gabriel Guzman
+ * @date 2025-07-04\
+ * @signature OrderRepository
+ */
+import { OrderModel } from "@/core/models/index"
 import type { IRepository } from "../../../core/interfaces/IRepository"
 import { Order } from "../../../core/entities/Order"
 

@@ -1,3 +1,9 @@
+/**
+ * Order Routes - Rutas para manejar operaciones de pedidos
+ * @author Gabriel Guzman
+ * @date 2025-07-04
+ * @signature OrderRoutes 
+ */
 import { Router } from "express"
 import { OrderController } from "./controllers/OrderController"
 

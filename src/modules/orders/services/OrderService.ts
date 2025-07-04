@@ -1,3 +1,9 @@
+/**
+ * OrderService - Servicio para manejar operaciones relacionadas con pedidos
+ * @author Gabriel Guzman
+ * @date 2025-07-04
+ * @signature OrderService
+ */
 import { OrderRepository } from "../repositories/OrderRepository"
 import type { UpdateOrderDto } from "../dtos/CreateOrderDto"
 import type { Order } from "../../../core/entities/Order"

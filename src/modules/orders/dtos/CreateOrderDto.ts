@@ -1,3 +1,9 @@
+/**
+ * CreateOrderDto - Data Transfer Object for creating a new order
+ * @author Gabriel Guzman
+ * @date 2025-07-04
+ * @signature CreateOrderDto
+ */
 export interface CreateOrderDto {
   userId: number
   items: OrderItemDto[]

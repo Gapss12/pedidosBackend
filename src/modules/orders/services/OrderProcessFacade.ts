@@ -1,6 +1,10 @@
 
-
-// PATRÓN FACADE - Simplifica el proceso complejo de creación de pedidos
+/**
+ * OrderProcessFacade - Facade para manejar el proceso de creación y cancelación de pedidos
+ * @author Gabriel Guzman
+ * @date 2025-07-04
+ * @signature OrderProcessFacade
+ */
 import { OrderService } from "./OrderService"
 import { OrderDetailService } from "../../orderDetails/services/OrderDetailService"
 import { ProductService } from "../../product/services/ProductService"

@@ -1,7 +1,7 @@
 import type { Request, Response, NextFunction } from "express"
 import { OrderService } from "../services/OrderService"
 import { OrderProcessFacade } from "../services/OrderProcessFacade"
-import type { ApiResponse } from "../../../core/contend/types/global"
+import type { ApiResponse } from "@/core/types/global"
 
 export class OrderController {
   private orderService: OrderService
