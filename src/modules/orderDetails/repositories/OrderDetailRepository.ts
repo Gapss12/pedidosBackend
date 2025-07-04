@@ -1,3 +1,9 @@
+/**
+ * Order Detail Repository
+ * @author Gabriel Guzman
+ * @date 2025-07-04
+ * @signature OrderDetailRepository
+ */
 import { OrderDetailModel } from "@/core/models/index"
 import type { IRepository } from "@/core/interfaces/IRepository"
 import { OrderDetail } from "@/core/entities/OrderDetail"

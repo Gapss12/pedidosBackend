@@ -1,3 +1,10 @@
+/**
+ * Order Detail Controller
+ * @author Gabriel Guzman
+ * @date 2025-07-04
+ * @signature OrderDetailController
+ */
+
 import type { Request, Response, NextFunction } from "express"
 import { OrderDetailService } from "../services/OrderDetailService"
 import type { ApiResponse } from "@/core/types/global"

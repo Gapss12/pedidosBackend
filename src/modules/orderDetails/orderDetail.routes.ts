@@ -1,3 +1,10 @@
+/**
+ * Order Detail Routes
+ * @author Gabriel Guzman
+ * @date 2025-07-01
+ * @signature OrderDetailRoutes
+ */
+
 import { Router } from "express"
 import { OrderDetailController } from "./controllers/OrderDetailController"
 

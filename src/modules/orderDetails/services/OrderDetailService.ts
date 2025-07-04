@@ -1,5 +1,12 @@
+/**
+ * Order Detail Service
+ * @author Gabriel Guzman
+ * @date 2025-07-04
+ * @signature OrderDetailService
+ */
+
 import { OrderDetailRepository } from "../repositories/OrderDetailRepository"
-import type { CreateOrderDetailDto, UpdateOrderDetailDto } from "../dtos/CreateOrderDetailDto"
+import type { CreateOrderDetailDto, UpdateOrderDetailDto } from "../dtos/OrderDetailDto"
 import type { OrderDetail } from "@/core/entities/OrderDetail"
 import { AppError } from "@/core/middlewares/errorHandler"
 
