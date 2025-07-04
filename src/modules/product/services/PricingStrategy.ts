@@ -1,5 +1,5 @@
 /**
- * Pagination utility functions
+ * Pricing strategies for product pricing calculations
  * @author Gabriel Guzman
  * @date 2025-07-01
  * @signature PricingStrategy

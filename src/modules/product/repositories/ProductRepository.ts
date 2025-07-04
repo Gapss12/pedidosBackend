@@ -1,6 +1,12 @@
-import { ProductModel } from "../../../core/models/ProductModel"
-import type { IRepository } from "../../../core/interfaces/IRepository"
-import { Product } from "../../../core/entities/Product"
+/**
+ * ProductRepository class for managing product data
+ * @author Gabriel Guzman
+ * @date 2025-07-01
+ * @signature ProductRepository
+ */
+import { ProductModel } from "@/core/models/index"
+import type { IRepository } from "@/core/interfaces/IRepository"
+import { Product } from "@/core/entities/Product"
 
 export class ProductRepository implements IRepository<Product> {
   async findAll(): Promise<Product[]> {

@@ -10,12 +10,11 @@ import type { PaginationOptions } from "@/types/global"
 export class PaginationUtil {
   static createPaginationOptions(page = 1, limit = 10): PaginationOptions {
     const normalizedPage = Math.max(1, page)
-    const normalizedLimit = Math.min(Math.max(1, limit), 100) // Max 100 items per page
+    const normalizedLimit = Math.min(Math.max(1, limit), 100) 
 
     return {
       page: normalizedPage,
-      limit: normalizedLimit,
-      offset: (normalizedPage - 1) * normalizedLimit,
+      limit: normalizedLimit
     }
   }
 
