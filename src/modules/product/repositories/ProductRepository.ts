@@ -1,7 +1,7 @@
 /**
- * ProductRepository class for managing product data
+ * ProductRepository - Repositorio para manejar operaciones de productos
  * @author Gabriel Guzman
- * @date 2025-07-01
+ * @date 2025-07-04
  * @signature ProductRepository
  */
 import { ProductModel } from "@/core/models/index"

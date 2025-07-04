@@ -1,8 +1,8 @@
 /**
- * ProductService class for managing product operations
+ * ProductService - Servicio para manejar operaciones relacionadas con productos
  * @author Gabriel Guzman
- * @date 2025-07-01
- * @signature ProductService 
+ * @date 2025-07-04
+ * @signature ProductService
  */
 import { ProductRepository } from "../repositories/ProductRepository"
 import type { CreateProductDto, UpdateProductDto } from "../dtos/CreateProductDto"

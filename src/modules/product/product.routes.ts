@@ -1,3 +1,9 @@
+/**
+ * Product Routes - Define las rutas para manejar productos
+ * @author Gabriel Guzman
+ * @date 2025-07-04
+ * @signature ProductRoutes
+ */
 import { Router } from "express"
 import { ProductController } from "./controllers/ProductController"
 

@@ -1,3 +1,9 @@
+/**
+ * ProductController - Controlador para manejar las operaciones de productos
+ * @author Gabriel Guzman
+ * @date 2025-07-04
+ * @signature ProductController
+ */
 import type { Request, Response, NextFunction } from "express"
 import { ProductService } from "../services/ProductService"
 import { PricingStrategyType, type ApiResponse } from "@/core/types/global"

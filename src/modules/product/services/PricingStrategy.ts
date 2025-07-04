@@ -1,7 +1,7 @@
 /**
- * Pricing strategies for product pricing calculations
+ * PricingStrategy - Implementación de estrategias de precios para productos
  * @author Gabriel Guzman
- * @date 2025-07-01
+ * @date 2025-07-04
  * @signature PricingStrategy
  */
 // Importación de la interfaz que define el contrato para todas las estrategias
