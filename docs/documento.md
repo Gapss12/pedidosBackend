@@ -67,7 +67,7 @@ const userEntity = factory.createUser(userData.name, userData.email)
 
 ```
 
----
+
 
 ### 2. Builder
 
@@ -146,7 +146,7 @@ const report = new ReportBuilder()
 
 ```
 
----
+
 
 ## PATRONES ESTRUCTURALES
 
@@ -214,7 +214,7 @@ const paymentSuccess = await paymentAdapter.processPayment(totalAmount, "dummy-t
 
 ```
 
----
+
 
 ### 4. Facade
 
@@ -320,7 +320,7 @@ export class OrderProcessFacade {
 const order = await this.orderProcessFacade.processOrder(orderData)
 ```
 
----
+
 
 ## PATRONES DE COMPORTAMIENTO
 
@@ -407,7 +407,7 @@ notificationManager.subscribe(emailObserver)
 
 ```
 
----
+
 
 ### 6. Strategy
 
@@ -512,12 +512,12 @@ async calculatePrice(productId: number, quantity: number, strategyType: PricingS
 
 ```
 
----
+
 
 ## Resumen de Implementación
 
 | Patrón | Tipo | Módulo | Propósito Principal |
-| --- | --- | --- | --- |
+|  |  |  |  |
 | Factory Method | Creacional | Users | Creación de tipos de usuario |
 | Builder | Creacional | Core/Application | Construcción de reportes |
 | Adapter | Estructural | Utils | Integración de pasarelas de pago |

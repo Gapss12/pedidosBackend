@@ -4,6 +4,7 @@
  * @date 2025-07-04
  * @signature PricingStrategy
  */
+
 // Importación de la interfaz que define el contrato para todas las estrategias
 import type { IPricingStrategy } from "@/core/interfaces/IPricingStrategy"
 

@@ -1,3 +1,10 @@
+/**
+ * Adaptadores para integrar diferentes pasarelas de pago
+ * @author Gabriel Guzman
+ * @date 2025-07-07
+ * @signature PaymentAdapter
+ */
+
 // PATRÓN ADAPTER - Integración con diferentes pasarelas de pago
 import type { IPaymentGateway } from "@/core/interfaces/IPaymentGateway"
 
