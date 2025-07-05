@@ -1,12 +1,13 @@
+/**
+ * Interface para la construcción de reportes de ventas.
+ * Define los métodos necesarios para construir un reporte de ventas.
+ * @author Gabriel Guzman
+ * @date 2025-07-04
+ * @signature ReportBuilder
+ */
+
 // PATRÓN BUILDER - Construcción paso a paso de reportes
-export interface SalesReport {
-  title: string
-  dateRange: { from: Date; to: Date }
-  totalSales: number
-  orderCount: number
-  topProducts: Array<{ name: string; quantity: number }>
-  filters: string[]
-}
+import { SalesReport } from "@/core/interfaces/ISaleReport"
 
 export class ReportBuilder {
   private report: Partial<SalesReport> = {}
@@ -15,27 +16,22 @@ export class ReportBuilder {
     this.report.title = title
     return this
   }
-
   setDateRange(from: Date, to: Date): ReportBuilder {
     this.report.dateRange = { from, to }
     return this
   }
-
   setTotalSales(total: number): ReportBuilder {
     this.report.totalSales = total
     return this
   }
-
   setOrderCount(count: number): ReportBuilder {
     this.report.orderCount = count
     return this
   }
-
   setTopProducts(products: Array<{ name: string; quantity: number }>): ReportBuilder {
     this.report.topProducts = products
     return this
   }
-
   addFilter(filter: string): ReportBuilder {
     if (!this.report.filters) {
       this.report.filters = []
@@ -43,7 +39,6 @@ export class ReportBuilder {
     this.report.filters.push(filter)
     return this
   }
-
   build(): SalesReport {
     if (!this.report.title || !this.report.dateRange) {
       throw new Error("Título y rango de fechas son requeridos")
@@ -64,3 +59,11 @@ export class ReportBuilder {
     return this
   }
 }
+
+
+const report = new ReportBuilder()
+  .setTitle("Reporte Mensual")
+  .setDateRange(new Date('2024-01-01'), new Date('2024-01-31'))
+  .setTotalSales(15000)
+  .addFilter("productos > $100")
+  .build()

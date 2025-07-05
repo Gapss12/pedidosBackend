@@ -5,8 +5,9 @@
  * @signature UserFactory
  */
 // PATRÓN FACTORY METHOD - Creación de diferentes tipos de usuario
-import { User } from "../../../core/entities/User"
-import type { IUserFactory } from "../../../core/interfaces/IUserFactory"
+
+import { User } from "@/core/entities/User"
+import type { IUserFactory } from "@/core/interfaces/IUserFactory"
 import { UserType } from "@/core/types/global"
 
 export abstract class UserFactory implements IUserFactory {
